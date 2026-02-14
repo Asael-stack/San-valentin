@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Feliz San Valentín 💘</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to bottom, #ffccd5, #ffe6f0);
+        text-align: center;
+        font-family: Arial, sans-serif;
+        overflow-x: hidden;
+    }
+
+    h1 {
+        margin-top: 60px;
+        font-size: 38px;
+        color: #b30059;
+        animation: latido 1s infinite;
+    }
+
+    p {
+        font-size: 20px;
+        color: #800040;
+        margin: 20px;
+        padding: 0 15px;
+    }
+
+    #tiempo {
+        font-size: 18px;
+        margin-top: 20px;
+        color: #99004d;
+        font-weight: bold;
+    }
+
+    img {
+        width: 250px;
+        border-radius: 20px;
+        margin: 10px;
+    }
+
+    /* Animación de latido */
+    @keyframes latido {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.08); }
+        100% { transform: scale(1); }
+    }
+
+    /* Corazones flotando */
+    .corazon {
+        position: fixed;
+        bottom: -50px;
+        font-size: 24px;
+        animation: flotar 6s linear infinite;
+        color: red;
+    }
+
+    @keyframes flotar {
+        0% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-900px);
+            opacity: 0;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<h1>💖 Feliz Día de San Valentín 💖</h1>
+
+<p>
+    Mi amor, gracias por estar a mi lado.<br>
+    Eres mi alegría, mi paz y mi todo. ❤️<br><br>
+
+    Tu valor para mi no se puede expresar en palabras. ❤️<br><br>
+
+    Le agradezco a Dios por hacerte parte de mi mi Nana 💕
+</p>
+
+<div id="tiempo"></div>
+
+<!-- 📸 AGREGA AQUÍ TUS FOTOS (cambia los nombres por los tuyos) -->
+<div>
+    <img src="foto1.jpg">
+    <img src="foto2.jpg">
+</div>
+
+<!-- 🎶 Música romántica -->
+<audio autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    // 💍 Fecha de matrimonio
+    const fechaMatrimonio = new Date("2023-12-30");
+
+    function actualizarTiempo() {
+        const ahora = new Date();
+        const diferencia = ahora - fechaMatrimonio;
+
+        const diasTotales = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+
+        const años = Math.floor(diasTotales / 365);
+        const meses = Math.floor((diasTotales % 365) / 30);
+        const dias = (diasTotales % 365) % 30;
+
+        document.getElementById("tiempo").innerHTML =
+            `💍 Llevamos ${años} año(s), ${meses} mes(es) y ${dias} día(s) casados 💖`;
+    }
+
+    actualizarTiempo();
+    setInterval(actualizarTiempo, 1000);
+
+    // ❤️ Crear corazones
+    function crearCorazon() {
+        const corazon = document.createElement("div");
+        corazon.classList.add("corazon");
+        corazon.innerHTML = "❤️";
+        corazon.style.left = Math.random() * window.innerWidth + "px";
+        corazon.style.fontSize = (Math.random() * 20 + 20) + "px";
+        corazon.style.animationDuration = (Math.random() * 3 + 3) + "s";
+        document.body.appendChild(corazon);
+
+        setTimeout(() => {
+            corazon.remove();
+        }, 6000);
+    }
+
+    setInterval(crearCorazon, 300);
+</script>
+
+</body>
+</html>
